@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MANAV | Dev Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Scanline Overlay -->
+  <div class="scanlines"></div>
+  <!-- Particle Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- BOOT SCREEN -->
+  <div id="bootScreen">
+    <div class="boot-content">
+      <div class="boot-logo">MANAV_OS v2.0</div>
+      <div class="boot-bar-wrapper">
+        <div class="boot-bar" id="bootBar"></div>
+      </div>
+      <div class="boot-text" id="bootText">Initializing systems...</div>
+    </div>
+  </div>
+
+  <!-- MAIN SITE -->
+  <div id="mainSite" class="hidden">
+
+    <!-- NAV HUD -->
+    <nav class="hud-nav">
+      <div class="hud-logo">
+        <span class="blink-cursor">▶</span> MANAV.EXE
+      </div>
+      <ul class="hud-links">
+        <li><a href="#about" data-sound="click">PROFILE</a></li>
+        <li><a href="#skills" data-sound="click">SKILLS</a></li>
+        <li><a href="#projects" data-sound="click">QUESTS</a></li>
+        <li><a href="#education" data-sound="click">LORE</a></li>
+        <li><a href="#contact" data-sound="click">CONTACT</a></li>
+      </ul>
+      <div class="hud-status">
+        <span class="status-dot"></span> ONLINE
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="hero-grid-bg"></div>
+      <div class="hero-content">
+        <div class="hero-tag">[ PLAYER ONE ]</div>
+        <h1 class="hero-name">
+          <span class="glitch" data-text="MANAV">MANAV</span>
+        </h1>
+        <h2 class="hero-title typing-text" id="typingTitle"></h2>
+        <p class="hero-subtitle">Student @ Manav Rachna University</p>
+
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-val">LVL 2</div>
+            <div class="stat-label">C / C++</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🐍</div>
+            <div class="stat-val">LVL 2</div>
+            <div class="stat-label">Python</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🌐</div>
+            <div class="stat-val">LVL 1</div>
+            <div class="stat-label">Web Dev</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🤖</div>
+            <div class="stat-val">LVL 2</div>
+            <div class="stat-label">Arduino</div>
+          </div>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">▶ VIEW QUESTS</a>
+          <a href="#contact" class="btn-secondary">✉ RECRUIT ME</a>
+        </div>
+      </div>
+
+      <div class="hero-avatar">
+        <div class="avatar-frame">
+          <div class="avatar-inner">
+            <div class="pixel-char">
+              <div class="pc-head"></div>
+              <div class="pc-body"></div>
+              <div class="pc-arms"></div>
+              <div class="pc-legs"></div>
+            </div>
+            <div class="xp-bar-wrap">
+              <div class="xp-label">XP</div>
+              <div class="xp-track"><div class="xp-fill" id="xpFill"></div></div>
+              <div class="xp-num">2450 / 5000</div>
+            </div>
+          </div>
+          <div class="avatar-ring r1"></div>
+          <div class="avatar-ring r2"></div>
+          <div class="avatar-ring r3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section" id="about">
+      <div class="section-header">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">CHARACTER PROFILE</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-card terminal-card">
+          <div class="terminal-topbar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">manav@dev:~$</span>
+          </div>
+          <div class="terminal-body" id="terminalBody">
+            <span class="t-line">$ whoami</span><br>
+            <span class="t-out"> Manav — Engineering Student &amp; Developer</span><br><br>
+            <span class="t-line">$ cat about.txt</span><br>
+            <span class="t-out"> I'm a passionate tech enthusiast studying at</span><br>
+            <span class="t-out"> <span class="highlight">Manav Rachna University</span>. I love building</span><br>
+            <span class="t-out"> things — from embedded hardware to full-stack</span><br>
+            <span class="t-out"> websites. I work with C, C++, Python,</span><br>
+            <span class="t-out"> JavaScript, Arduino UNO, and Pi Pico.</span><br><br>
+            <span class="t-line">$ cat mission.txt</span><br>
+            <span class="t-out"> To create, build, and innovate. Every project</span><br>
+            <span class="t-out"> is a new <span class="highlight">QUEST</span> to complete.</span><br><br>
+            <span class="t-cursor">█</span>
+          </div>
+        </div>
+
+        <div class="about-stats-panel">
+          <div class="stat-panel-title">// PLAYER STATS</div>
+          <div class="stat-row" data-val="65">
+            <span class="sr-label">C / C++</span>
+            <div class="sr-bar"><div class="sr-fill"></div></div>
+            <span class="sr-num">65</span>
+          </div>
+          <div class="stat-row" data-val="60">
+            <span class="sr-label">Python</span>
+            <div class="sr-bar"><div class="sr-fill"></div></div>
+            <span class="sr-num">60</span>
+          </div>
+          <div class="stat-row" data-val="45">
+            <span class="sr-label">JavaScript</span>
+            <div class="sr-bar"><div class="sr-fill"></div></div>
+            <span class="sr-num">45</span>
+          </div>
+          <div class="stat-row" data-val="50">
+            <span class="sr-label">HTML/CSS</span>
+            <div class="sr-bar"><div class="sr-fill"></div></div>
+            <span class="sr-num">50</span>
+          </div>
+          <div class="stat-row" data-val="70">
+            <span class="sr-label">Arduino</span>
+            <div class="sr-bar"><div class="sr-fill"></div></div>
+            <span class="sr-num">70</span>
+          </div>
+          <div class="stat-row" data-val="55">
+            <span class="sr-label">Pi Pico</span>
+            <div class="sr-bar"><div class="sr-fill"></div></div>
+            <span class="sr-num">55</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section class="section" id="skills">
+      <div class="section-header">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">SKILL TREE</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="skills-grid">
+
+        <div class="skill-node unlocked" data-skill="C Language">
+          <div class="sn-icon">💻</div>
+          <div class="sn-name">C Language</div>
+          <div class="sn-stars">★★★☆☆</div>
+          <div class="sn-badge">UNLOCKED</div>
+        </div>
+
+        <div class="skill-node unlocked" data-skill="C++">
+          <div class="sn-icon">⚙️</div>
+          <div class="sn-name">C++</div>
+          <div class="sn-stars">★★★☆☆</div>
+          <div class="sn-badge">UNLOCKED</div>
+        </div>
+
+        <div class="skill-node unlocked" data-skill="Python">
+          <div class="sn-icon">🐍</div>
+          <div class="sn-name">Python</div>
+          <div class="sn-stars">★★★☆☆</div>
+          <div class="sn-badge">UNLOCKED</div>
+        </div>
+
+        <div class="skill-node learning" data-skill="JavaScript">
+          <div class="sn-icon">🌐</div>
+          <div class="sn-name">JavaScript</div>
+          <div class="sn-stars">★★☆☆☆</div>
+          <div class="sn-badge">IN PROGRESS</div>
+        </div>
+
+        <div class="skill-node learning" data-skill="HTML/CSS">
+          <div class="sn-icon">🎨</div>
+          <div class="sn-name">HTML / CSS</div>
+          <div class="sn-stars">★★☆☆☆</div>
+          <div class="sn-badge">IN PROGRESS</div>
+        </div>
+
+        <div class="skill-node unlocked" data-skill="Arduino UNO">
+          <div class="sn-icon">🤖</div>
+          <div class="sn-name">Arduino UNO</div>
+          <div class="sn-stars">★★★★☆</div>
+          <div class="sn-badge">UNLOCKED</div>
+        </div>
+
+        <div class="skill-node unlocked" data-skill="Pi Pico">
+          <div class="sn-icon">🍓</div>
+          <div class="sn-name">Raspberry Pi Pico</div>
+          <div class="sn-stars">★★★☆☆</div>
+          <div class="sn-badge">UNLOCKED</div>
+        </div>
+
+        <div class="skill-node locked" data-skill="React">
+          <div class="sn-icon">⚛️</div>
+          <div class="sn-name">React</div>
+          <div class="sn-stars">☆☆☆☆☆</div>
+          <div class="sn-badge">🔒 LOCKED</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- QUESTS / PROJECTS SECTION -->
+    <section class="section" id="projects">
+      <div class="section-header">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">ACTIVE QUESTS</h2>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="quests-grid">
+        <div class="quest-card" data-difficulty="MEDIUM">
+          <div class="qc-header">
+            <span class="qc-type">🤖 HARDWARE</span>
+            <span class="qc-diff medium">●●● MEDIUM</span>
+          </div>
+          <h3 class="qc-title">Arduino UNO Projects</h3>
+          <p class="qc-desc">Built multiple sensor-based circuits and embedded systems using Arduino UNO. Programmed in C/C++ with real-time hardware interaction.</p>
+          <div class="qc-tags">
+            <span>C++</span><span>Arduino</span><span>Embedded</span>
+          </div>
+          <div class="qc-progress">
+            <div class="qcp-bar"><div class="qcp-fill" style="width:75%"></div></div>
+            <span>75% Complete</span>
+          </div>
+          <div class="qc-reward">🏆 +350 XP</div>
+        </div>
+
+        <div class="quest-card" data-difficulty="MEDIUM">
+          <div class="qc-header">
+            <span class="qc-type">🍓 HARDWARE</span>
+            <span class="qc-diff medium">●●● MEDIUM</span>
+          </div>
+          <h3 class="qc-title">Raspberry Pi Pico Experiments</h3>
+          <p class="qc-desc">Exploring MicroPython on Pi Pico for IoT applications, GPIO control, and low-level hardware interfacing projects.</p>
+          <div class="qc-tags">
+            <span>Python</span><span>Pi Pico</span><span>IoT</span>
+          </div>
+          <div class="qc-progress">
+            <div class="qcp-bar"><div class="qcp-fill" style="width:60%"></div></div>
+            <span>60% Complete</span>
+          </div>
+          <div class="qc-reward">🏆 +300 XP</div>
+        </div>
+
+        <div class="quest-card active-quest" data-difficulty="HARD">
+          <div class="qc-header">
+            <span class="qc-type">🌐 WEB</span>
+            <span class="qc-diff hard">●●●● HARD</span>
+          </div>
+          <h3 class="qc-title">Portfolio Website</h3>
+          <p class="qc-desc">Building this very gaming-themed portfolio using HTML, CSS, and JavaScript. Levelling up web development skills one commit at a time!</p>
+          <div class="qc-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+          <div class="qc-progress">
+            <div class="qcp-bar"><div class="qcp-fill" style="width:90%"></div></div>
+            <span>90% Complete</span>
+          </div>
+          <div class="qc-reward active-badge">⚡ ACTIVE</div>
+        </div>
+
+        <div class="quest-card" data-difficulty="EASY">
+          <div class="qc-header">
+            <span class="qc-type">🐍 PYTHON</span>
+            <span class="qc-diff easy">●● EASY</span>
+          </div>
+          <h3 class="qc-title">Python Mini Programs</h3>
+          <p class="qc-desc">Collection of Python scripts — from logic programs and data manipulation to small automation tools and algorithmic challenges.</p>
+          <div class="qc-tags">
+            <span>Python</span><span>Algorithms</span><span>Scripts</span>
+          </div>
+          <div class="qc-progress">
+            <div class="qcp-bar"><div class="qcp-fill" style="width:80%"></div></div>
+            <span>80% Complete</span>
+          </div>
+          <div class="qc-reward">🏆 +200 XP</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section class="section" id="education">
+      <div class="section-header">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">LORE & ORIGIN</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="lore-timeline">
+        <div class="lore-item current">
+          <div class="lore-dot"></div>
+          <div class="lore-card">
+            <div class="lore-year">2023 — Present</div>
+            <div class="lore-title">🎓 Manav Rachna University</div>
+            <div class="lore-sub">B.Tech — Computer Science / Engineering</div>
+            <p class="lore-desc">Currently enrolled, grinding through algorithms, data structures, and embedded systems. Building projects that bridge hardware and software.</p>
+            <div class="lore-badge current-badge">▶ CURRENT CHAPTER</div>
+          </div>
+        </div>
+        <div class="lore-item">
+          <div class="lore-dot"></div>
+          <div class="lore-card">
+            <div class="lore-year">2021 — 2023</div>
+            <div class="lore-title">📚 12th Grade — Science Stream</div>
+            <div class="lore-sub">Physics · Chemistry · Mathematics · Computer Science</div>
+            <p class="lore-desc">Where the coding journey began. First steps into C and programming logic. Fell in love with problem solving and hardware tinkering.</p>
+            <div class="lore-badge complete-badge">✔ COMPLETED</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <span class="sec-num">05</span>
+        <h2 class="sec-title">SEND MESSAGE</h2>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <div class="ci-title">// OPEN TO CONNECT</div>
+          <p class="ci-desc">Looking for internships, collaborations, or just want to talk tech? I'm always up for a new quest together.</p>
+          <div class="ci-links">
+            <a href="https://github.com/" target="_blank" class="ci-link github">
+              <span class="cl-icon">⌨</span>
+              <span class="cl-text">GitHub</span>
+              <span class="cl-arrow">→</span>
+            </a>
+            <a href="mailto:manav@example.com" class="ci-link email">
+              <span class="cl-icon">✉</span>
+              <span class="cl-text">manav@mru.edu.in</span>
+              <span class="cl-arrow">→</span>
+            </a>
+            <a href="https://linkedin.com/" target="_blank" class="ci-link linkedin">
+              <span class="cl-icon">🔗</span>
+              <span class="cl-text">LinkedIn</span>
+              <span class="cl-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-panel">
+          <div class="form-title">// TRANSMIT MESSAGE</div>
+          <div class="form-group">
+            <label>PLAYER NAME</label>
+            <input type="text" id="formName" placeholder="Enter your name..." />
+          </div>
+          <div class="form-group">
+            <label>COMM CHANNEL (EMAIL)</label>
+            <input type="email" id="formEmail" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label>MESSAGE PAYLOAD</label>
+            <textarea id="formMsg" placeholder="Type your message here..."></textarea>
+          </div>
+          <button class="btn-primary send-btn" id="sendBtn">⚡ TRANSMIT</button>
+          <div id="formFeedback" class="form-feedback hidden">✔ Message received! I'll respond soon.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="hud-footer">
+      <div class="footer-left">
+        MANAV.EXE — <span class="blink-cursor">▶</span> All Rights Reserved © 2025
+      </div>
+      <div class="footer-center">Made with ❤️ + ☕ + infinite loops</div>
+      <div class="footer-right">
+        <span class="status-dot"></span> Manav Rachna University
+      </div>
+    </footer>
+
+  </div><!-- end mainSite -->
+
+  <script src="script.js"></script>
+</body>
+</html>
